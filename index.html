@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini-CLI 终极使用教程 - 从入门到精通</title>
+    <meta name="description" content="Gemini-CLI 完整使用教程，涵盖安装、核心交互模式、斜杠命令详解、高级技巧与工作流、深度自定义等内容">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <meta name="theme-color" content="#0f172a">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="nav-logo">⚡</span>
+                <span class="nav-title">Gemini-CLI</span>
+                <span class="nav-subtitle">终极教程</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#introduction" class="nav-link">前言</a>
+                <a href="#installation" class="nav-link">安装</a>
+                <a href="#basics" class="nav-link">基础</a>
+                <a href="#commands" class="nav-link">命令</a>
+                <a href="#advanced" class="nav-link">高级</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="切换菜单">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Gemini-CLI 终极使用教程
+                <span class="hero-subtitle">从入门到精通</span>
+            </h1>
+            <p class="hero-description">
+                深度掌握 Google Gemini CLI 的每一个功能，释放 AI 编程伙伴的最大潜力
+            </p>
+            <div class="hero-actions">
+                <a href="#installation" class="btn btn-primary">开始学习</a>
+                <a href="#commands" class="btn btn-secondary">查看命令</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-buttons">
+                        <span class="terminal-btn close"></span>
+                        <span class="terminal-btn minimize"></span>
+                        <span class="terminal-btn maximize"></span>
+                    </div>
+                    <div class="terminal-title">gemini-cli</div>
+                </div>
+                <div class="terminal-content">
+                    <div class="terminal-line">
+                        <span class="prompt">$</span>
+                        <span class="command">gemini</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="response">欢迎使用 Gemini-CLI！</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="prompt">$</span>
+                        <span class="command">请帮我用 Python 写一个快速排序算法</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Table of Contents -->
+            <aside class="toc">
+                <h3>目录导航</h3>
+                <nav class="toc-nav">
+                    <a href="#introduction" class="toc-link">前言：为什么选择 Gemini-CLI？</a>
+                    <a href="#installation" class="toc-link">第一部分：安装与初次启动</a>
+                    <a href="#basics" class="toc-link">第二部分：核心交互模式</a>
+                    <a href="#commands" class="toc-link">第三部分：斜杠命令终极解析</a>
+                    <a href="#advanced" class="toc-link">第四部分：高级技巧与工作流</a>
+                    <a href="#customization" class="toc-link">第五部分：深度自定义</a>
+                    <a href="#faq" class="toc-link">第六部分：常见问题解答</a>
+                </nav>
+            </aside>
+
+            <!-- Content -->
+            <article class="content">
+                <!-- Introduction -->
+                <section id="introduction" class="section">
+                    <h2>前言：为什么选择 Gemini-CLI？</h2>
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🖥️</div>
+                            <h3>终端原生</h3>
+                            <p>直接生活在您最熟悉的开发环境——终端中，无需切换窗口，实现沉浸式工作流。</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🧠</div>
+                            <h3>上下文感知</h3>
+                            <p>通过 @ 命令和 GEMINI.md 文件，它能深刻理解您的项目结构和编码规范。</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🛠️</div>
+                            <h3>强大的工具集</h3>
+                            <p>不仅能聊天，还能读写文件、执行命令、搜索网络，像一个真正的助理一样执行任务。</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">⚡</div>
+                            <h3>高度可扩展</h3>
+                            <p>支持自定义命令，您可以根据自己的需求，打造专属的自动化工具。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Installation -->
+                <section id="installation" class="section">
+                    <h2>第一部分：安装与初次启动</h2>
+
+                    <h3>1. 环境准备</h3>
+                    <p>在安装前，请确保您的系统已安装 Node.js (推荐 v20 或更高版本) 和 npm。您可以在终端运行以下命令来检查：</p>
+                    <pre><code class="language-bash">node -v
+npm -v</code></pre>
+
+                    <h3>2. 全局安装</h3>
+                    <p>打开您的终端，运行以下命令进行全局安装：</p>
+                    <pre><code class="language-bash">npm install -g @google/gemini-cli</code></pre>
+
+                    <h3>3. 首次运行与认证</h3>
+                    <ol>
+                        <li>安装成功后，在终端输入 <code>gemini</code> 并按回车</li>
+                        <li>首次运行时，它会引导您完成认证</li>
+                        <li>选择认证方式，推荐 "Login with Google"</li>
+                        <li>您的浏览器将自动打开一个 Google 登录和授权页面</li>
+                        <li>完成授权后，返回终端，您就可以开始与 Gemini 对话了</li>
+                    </ol>
+                </section>
+
+                <!-- Basics -->
+                <section id="basics" class="section">
+                    <h2>第二部分：核心交互模式</h2>
+                    <p>在深入了解具体的 / 命令之前，您需要掌握与 Gemini-CLI 交互的三种基本方式：</p>
+
+                    <h3>1. 自然语言提示</h3>
+                    <p>这是最基础的交互方式。直接输入您的问题或指令，就像聊天一样。</p>
+                    <pre><code class="language-bash">请帮我用 Python 写一个快速排序算法。</code></pre>
+
+                    <h3>2. @ 命令：文件/目录上下文注入</h3>
+                    <p>使用 @ 符号，可以将本地文件或整个目录的内容作为上下文提供给 Gemini。这是其理解项目背景的关键。</p>
+                    <pre><code class="language-bash">请根据 @./src/utils.js 文件中的代码风格，为这个新函数添加注释。</code></pre>
+
+                    <h3>3. ! 命令：直接执行 Shell 命令</h3>
+                    <p>使用 ! 符号，可以直接在 CLI 内部执行任何终端命令，无需退出。</p>
+                    <pre><code class="language-bash">!git status</code></pre>
+                </section>
+
+                <!-- Commands -->
+                <section id="commands" class="section">
+                    <h2>第三部分：斜杠命令终极解析</h2>
+                    <p>斜杠 (/) 命令是控制和管理 Gemini-CLI 的核心。下面是对每个命令的详细剖析。</p>
+
+                    <div class="command-categories">
+                        <div class="command-category">
+                            <h3>会话与历史管理</h3>
+                            <div class="command-list">
+                                <div class="command-item">
+                                    <code>/chat save <tag></code>
+                                    <span>保存当前完整的对话状态</span>
+                                </div>
+                                <div class="command-item">
+                                    <code>/chat resume <tag></code>
+                                    <span>恢复一个之前保存的对话</span>
+                                </div>
+                                <div class="command-item">
+                                    <code>/chat list</code>
+                                    <span>列出所有已保存的会话标签</span>
+                                </div>
+                                <div class="command-item">
+                                    <code>/chat clear</code>
+                                    <span>清空当前对话的历史记录</span>
+                                </div>
+                                <div class="command-item">
+                                    <code>/history</code>
+                                    <span>查看当前会话的详细历史记录</span>
+                                </div>
+                                <div class="command-item">
+                                    <code>/compress</code>
+                                    <span>将冗长的对话历史压缩成简洁摘要</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="command-category">
+                            <h3>上下文与记忆管理</h3>
+                            <div class="command-list">
+                                <div class="command-item">
+                                    <code>/memory show</code>
+                                    <span>显示当前所有已加载的 GEMINI.md 文件内容</span>
+                                </div>
+                                <div class="command-item">
+                                    <code>/memory refresh</code>
+                                    <span>重新加载所有记忆文件</span>
+                                </div>
+                                <div class="command-item">
+                                    <code>/context show</code>
+                                    <span>显示即将发送给模型的所有信息</span>
+                                </div>
+                                <div class="command-item">
+                                    <code>/init</code>
+                                    <span>分析项目并创建 GEMINI.md 文件</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="command-category">
+                            <h3>工具与集成</h3>
+                            <div class="command-list">
+                                <div class="command-item">
+                                    <code>/tools</code>
+                                    <span>列出所有可用的工具及其状态</span>
+                                </div>
+                                <div class="command-item">
+                                    <code>/extensions</code>
+                                    <span>列出当前活动的扩展</span>
+                                </div>
+                                <div class="command-item">
+                                    <code>/setup-github</code>
+                                    <span>配置 GitHub Actions 工作流</span>
+                                </div>
+                                <div class="command-item">
+                                    <code>/yolo</code>
+                                    <span>启用自动执行模式（谨慎使用）</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="command-category">
+                            <h3>配置与信息</h3>
+                            <div class="command-list">
+                                <div class="command-item">
+                                    <code>/help</code>
+                                    <span>显示所有可用的斜杠命令</span>
+                                </div>
+                                <div class="command-item">
+                                    <code>/settings</code>
+                                    <span>打开全局配置文件</span>
+                                </div>
+                                <div class="command-item">
+                                    <code>/theme</code>
+                                    <span>更改 CLI 界面的颜色主题</span>
+                                </div>
+                                <div class="command-item">
+                                    <code>/stats</code>
+                                    <span>显示当前会话的详细统计数据</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Advanced -->
+                <section id="advanced" class="section">
+                    <h2>第四部分：高级技巧与工作流</h2>
+
+                    <h3>1. 代码调试工作流</h3>
+                    <ol>
+                        <li>使用 <code>@/path/to/file.py</code> 载入问题代码</li>
+                        <li>提问："分析这段代码可能出现的 IndexError 异常，并给出修复建议"</li>
+                        <li>使用 <code>!pytest tests/</code> 运行相关测试</li>
+                        <li>让 Gemini 直接生成修复后的代码，并使用 <code>/copy</code> 粘贴</li>
+                    </ol>
+
+                    <h3>2. 自动化文档生成</h3>
+                    <ol>
+                        <li>在项目根目录创建 <code>GEMINI.md</code>，写入指令："所有文档需为 Markdown 格式，包含代码示例"</li>
+                        <li>运行 <code>/memory refresh</code> 加载指令</li>
+                        <li>提问："请为 @./src/ 目录下的所有模块生成 API 文档"</li>
+                    </ol>
+                </section>
+
+                <!-- Customization -->
+                <section id="customization" class="section">
+                    <h2>第五部分：深度自定义</h2>
+
+                    <h3>1. 配置 settings.json</h3>
+                    <ol>
+                        <li>运行 <code>/settings</code> 找到并打开配置文件</li>
+                        <li>修改默认模型：<code>"model": "gemini-1.5-pro-latest"</code></li>
+                        <li>调整创造性：<code>"temperature": 0.8</code></li>
+                        <li>禁用危险工具：<code>"tools": { "shell": { "execute": false } }</code></li>
+                    </ol>
+
+                    <h3>2. 创建自定义斜杠命令</h3>
+                    <ol>
+                        <li>找到命令目录（通常是 <code>~/.gemini/commands</code>）</li>
+                        <li>创建名为 <code>deploy</code> 的可执行脚本文件</li>
+                        <li>添加执行权限：<code>chmod +x ~/.gemini/commands/deploy</code></li>
+                        <li>重启 Gemini-CLI，现在可以直接运行 <code>/deploy</code></li>
+                    </ol>
+
+                    <pre><code class="language-bash">#!/bin/bash
+echo "🚀 开始部署项目..."
+# 在此添加您的部署命令
+echo "✅ 部署完成！"</code></pre>
+                </section>
+
+                <!-- FAQ -->
+                <section id="faq" class="section">
+                    <h2>第六部分：常见问题解答</h2>
+
+                    <div class="faq-list">
+                        <div class="faq-item">
+                            <h3>Q: 安装时出现权限错误怎么办？</h3>
+                            <p>A: 尝试修复 npm 的全局包权限，避免直接使用 sudo。可以搜索 "npm fix permissions" 查找解决方案。</p>
+                        </div>
+                        <div class="faq-item">
+                            <h3>Q: Gemini 似乎没有理解我的项目文件？</h3>
+                            <p>A: 确认您使用了 @ 命令正确注入了文件或目录。使用 <code>/context show</code> 检查当前上下文是否包含了您期望的文件内容。</p>
+                        </div>
+                        <div class="faq-item">
+                            <h3>Q: 如何重置认证信息？</h3>
+                            <p>A: 运行 <code>/auth</code> 命令，里面通常会提供重置或重新登录的选项。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Conclusion -->
+                <section class="section conclusion">
+                    <h2>结语</h2>
+                    <p>您已经完成了 Gemini-CLI 的终极教程。但真正的掌握来自于不断的实践。现在，就把它应用到您的日常工作中，探索它与您的个人工作流相结合的无限可能。祝您编码愉快！</p>
+                </section>
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Gemini-CLI 终极教程. 使用 <a href="https://github.com">GitHub</a> 部署.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

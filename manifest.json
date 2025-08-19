@@ -1,0 +1,21 @@
+{
+  "name": "Gemini-CLI 终极使用教程",
+  "short_name": "Gemini-CLI 教程",
+  "description": "Gemini-CLI 完整使用教程，涵盖安装、核心交互模式、斜杠命令详解、高级技巧与工作流、深度自定义等内容",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#3b82f6",
+  "icons": [
+    {
+      "src": "icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
